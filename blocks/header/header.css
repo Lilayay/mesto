@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  border-bottom: 1px solid #545454;
+  min-height: 74px;
+}
+
+@media screen and (max-width: 780px) {
+  .header {
+    min-height: 56px;
+  }
+}

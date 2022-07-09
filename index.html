@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="./pages/index.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mesto</title>
+</head>
+
+<body class="page">
+  <header class="header">
+    <a class="header__link" href="#"><img class="header__logo" src="./images/header.svg" alt="Логотип" /></a>
+  </header>
+  <main class="content">
+    <section class="profile">
+      <div class="profile__info">
+        <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар" />
+        <div class="profile__text">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" aria-label="Редактировать профиль">
+            <svg width="10" height="10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M10 1.328 2.604 8.767 1.283 7.419 8.66 0 10 1.328ZM0 10l1.962-.588L.585 8.083 0 10Z"
+                fill="#fff" />
+            </svg>
+          </button>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+      </div>
+      <button class="profile__add-button" aria-label="Добавить">
+        <svg width="22" height="22" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 9.778h-9.778V0H9.778v9.778H0v2.444h9.778V22h2.444v-9.778H22V9.778Z" fill="#fff" />
+        </svg>
+      </button>
+      <div class="popup">
+        <form class="popup__container">
+          <h2 class="popup__title">Редактировать профиль</h2>
+          <div class="popup__input">
+            <input type="text" value="Жак-Ив Кусто" class="popup__text popup__text_name">
+            <input type="text" value="Исследователь океана" class="popup__text popup__text_about">
+            <button class="popup__submit-btn popup__submit-btn_save">Сохранить</button>
+          </div>
+          <button class="popup__close" aria-label="Закрыть"><img class="popup__cross" src="./images/close.svg"
+              alt="Закрыть" /></button>
+        </form>
+      </div>
+    </section>
+    <section class="gallery">
+      <ul class="gallery__elements">
+        <li class="gallery__element">
+          <img class="gallery__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Фото" />
+          <div class="gallery__description">
+            <h2 class="gallery__title">Карачаевск</h2>
+            <button class="gallery__like-button" aria-label="Нравится"></button>
+          </div>
+        </li>
+        <li class="gallery__element">
+          <img class="gallery__image" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Фото" />
+          <div class="gallery__description">
+            <h2 class="gallery__title">Гора Эльбрус</h2>
+            <button class="gallery__like-button" aria-label="Нравится"></button>
+          </div>
+        </li>
+        <li class="gallery__element">
+          <img class="gallery__image" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Фото" />
+          <div class="gallery__description">
+            <h2 class="gallery__title">Домбай</h2>
+            <button class="gallery__like-button" aria-label="Нравится"></button>
+          </div>
+        </li>
+        <li class="gallery__element">
+          <img class="gallery__image" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Фото" />
+          <div class="gallery__description">
+            <h2 class="gallery__title">Гора Эльбрус</h2>
+            <button class="gallery__like-button" aria-label="Нравится"></button>
+          </div>
+        </li>
+        <li class="gallery__element">
+          <img class="gallery__image" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Фото" />
+          <div class="gallery__description">
+            <h2 class="gallery__title">Домбай</h2>
+            <button class="gallery__like-button" aria-label="Нравится"></button>
+          </div>
+        </li>
+        <li class="gallery__element">
+          <img class="gallery__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Фото" />
+          <div class="gallery__description">
+            <h2 class="gallery__title">Карачаево-Черкесия</h2>
+            <button class="gallery__like-button" aria-label="Нравится"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+  <footer class="footer">
+    <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
+  </footer>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>
