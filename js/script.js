@@ -35,4 +35,3 @@ window.addEventListener('DOMContentLoaded', (event) => {
     this.classList.toggle("gallery__like-button_active");
   }))
 });
-
