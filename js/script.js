@@ -4,6 +4,12 @@ let popup = document.querySelector(".popup");
 
 function openPopup(e) {
   e.preventDefault();
+  let title = document.querySelector(".profile__title");
+  let about = document.querySelector(".profile__subtitle");
+  let inputName = document.querySelector(".popup__text_type_name");
+  let inputJob = document.querySelector(".popup__text_type_about");
+  inputName.value = title.textContent
+  inputJob.value = about.textContent
   popup.classList.add("popup_opened");
 }
 
@@ -16,8 +22,8 @@ editBtn.addEventListener("click", openPopup);
 closeBtn.addEventListener("click", closePopup);
 
 let formElement = document.querySelector(".popup__container");
-let inputName = document.querySelector(".popup__text_name");
-let inputJob = document.querySelector(".popup__text_about");
+let inputName = document.querySelector(".popup__text_type_name");
+let inputJob = document.querySelector(".popup__text_type_about");
 
 function changeForm(evt) {
   evt.preventDefault();
@@ -29,9 +35,11 @@ function changeForm(evt) {
 formElement.addEventListener("submit", changeForm);
 
 
-window.addEventListener('DOMContentLoaded', (event) => {
-  [...document.querySelectorAll(".gallery__like-button")].forEach(el => el.addEventListener('click', function (e) {
-    e.preventDefault();
-    this.classList.toggle("gallery__like-button_active");
-  }))
+window.addEventListener("DOMContentLoaded", (event) => {
+  [...document.querySelectorAll(".gallery__like-button")].forEach((el) =>
+    el.addEventListener("click", function (e) {
+      e.preventDefault();
+      this.classList.toggle("gallery__like-button_active");
+    })
+  );
 });

@@ -1,5 +1,5 @@
 .gallery__elements {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   list-style: none;
   display: grid;
@@ -12,10 +12,10 @@
   row-gap: 20px;
 }
 
-
 @media screen and (max-width: 780px) {
   .gallery__elements {
     grid-template-columns: 1fr;
-    grid-template-rows: (6, auto);
+    grid-template-rows: repeat(6, auto);
+    margin: 0 auto;
   }
 }
