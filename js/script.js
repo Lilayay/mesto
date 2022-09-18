@@ -1,14 +1,14 @@
 const editBtn = document.querySelector(".profile__edit-button");
 const addBtn = document.querySelector(".profile__add-button");
-const popupAdd = document.querySelector(".popup__add");
-const popupEdit = document.querySelector(".popup__edit");
+const popupAdd = document.querySelector(".popup-add");
+const popupEdit = document.querySelector(".popup-edit");
 const gallery = document.querySelector(".gallery__elements");
 const template = document.querySelector(".template");
 const card = document.querySelector(".gallery__element");
 const formElementAdd = document.querySelector(".popup__container_add");
 let inputImageTitle = document.querySelector(".popup__text_type_title");
 let inputImageLink = document.querySelector(".popup__text_type_link");
-let popupImage = document.querySelector(".popup__image");
+let popupImage = document.querySelector(".popup-image");
 let fullImage = document.querySelector(".popup__image-full");
 let popupDescription = document.querySelector(".popup__description");
 
