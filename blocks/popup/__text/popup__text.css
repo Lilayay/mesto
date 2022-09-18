@@ -15,3 +15,7 @@
 .popup__text:first-child {
   margin-top: 0;
 }
+
+.popup__text::placeholder {
+  color: #C4C4C4;
+}
