@@ -18,7 +18,6 @@ const inputName = document.querySelector(".popup__text_type_name");
 const inputJob = document.querySelector(".popup__text_type_about");
 const formElementEdit = document.querySelector(".popup__container_edit");
 const closeBtn = document.querySelectorAll(".popup__close");
-
 const initialCards = [
   {
     name: 'Архыз',
