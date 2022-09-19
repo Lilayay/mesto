@@ -1,16 +1,23 @@
 const editBtn = document.querySelector(".profile__edit-button");
 const addBtn = document.querySelector(".profile__add-button");
+const popup = document.querySelector(".popup");
 const popupAdd = document.querySelector(".popup-add");
 const popupEdit = document.querySelector(".popup-edit");
 const gallery = document.querySelector(".gallery__elements");
 const template = document.querySelector(".template");
 const card = document.querySelector(".gallery__element");
 const formElementAdd = document.querySelector(".popup__container_add");
-let inputImageTitle = document.querySelector(".popup__text_type_title");
-let inputImageLink = document.querySelector(".popup__text_type_link");
-let popupImage = document.querySelector(".popup-image");
-let fullImage = document.querySelector(".popup__image-full");
-let popupDescription = document.querySelector(".popup__description");
+const inputImageTitle = document.querySelector(".popup__text_type_title");
+const inputImageLink = document.querySelector(".popup__text_type_link");
+const popupImage = document.querySelector(".popup-image");
+const fullImage = document.querySelector(".popup__image-full");
+const popupDescription = document.querySelector(".popup__description");
+const title = document.querySelector(".profile__title");
+const about = document.querySelector(".profile__subtitle");
+const inputName = document.querySelector(".popup__text_type_name");
+const inputJob = document.querySelector(".popup__text_type_about");
+const formElementEdit = document.querySelector(".popup__container_edit");
+const closeBtn = document.querySelectorAll(".popup__close");
 
 const initialCards = [
   {
@@ -39,49 +46,47 @@ const initialCards = [
   }
 ];
 
+function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+}
+
+function openPopup(popup) {
+  popup.classList.add('popup_opened');
+}
+
+function closePopupByClick(e) {
+  e.addEventListener("click", function (e) {
+    e.preventDefault();
+    const currentPopup = e.target;
+    const popupToclose = currentPopup.closest(".popup");
+    closePopup(popupToclose);
+  });
+};
+closeBtn.forEach(closePopupByClick);
 
 function openPopupEdit(e) {
   e.preventDefault();
-  let title = document.querySelector(".profile__title");
-  let about = document.querySelector(".profile__subtitle");
-  let inputName = document.querySelector(".popup__text_type_name");
-  let inputJob = document.querySelector(".popup__text_type_about");
   inputName.value = title.textContent
   inputJob.value = about.textContent
-  popupEdit.classList.add("popup_opened");
+  openPopup(popupEdit);
 }
 
 editBtn.addEventListener("click", openPopupEdit);
 
-let formElementEdit = document.querySelector(".popup__container_edit");
-let inputName = document.querySelector(".popup__text_type_name");
-let inputJob = document.querySelector(".popup__text_type_about");
-
 function changeForm(e) {
   e.preventDefault();
-  let title = document.querySelector(".profile__title");
-  let about = document.querySelector(".profile__subtitle");
   title.textContent = inputName.value;
   about.textContent = inputJob.value;
+  closePopup(popupEdit);
 }
 formElementEdit.addEventListener("submit", changeForm);
 
 function openPopupAdd(e) {
   e.preventDefault();
-  popupAdd.classList.add("popup_opened");
+  openPopup(popupAdd);
   formElementAdd.reset();
 }
 addBtn.addEventListener("click", openPopupAdd);
-
-const closeBtn = document.querySelectorAll(".popup__close");
-closeBtn.forEach(function closePopup(e) {
-  e.addEventListener("click", function (e) {
-    e.preventDefault();
-    const currentPopup = e.target;
-    const popupToclose = currentPopup.closest(".popup");
-    popupToclose.classList.remove("popup_opened");
-  });
-});
 
 function addFormCard(e) {
   e.preventDefault();
@@ -93,7 +98,7 @@ function addFormCard(e) {
   };
   const newCard = createCard(data);
   gallery.prepend(newCard);
-  popupAdd.classList.remove("popup_opened");
+  closePopup(popupAdd);
   formElementAdd.reset();
 }
 
@@ -137,8 +142,9 @@ function likeCard(e) {
 
 function openImage(e) {
   e.preventDefault();
-  popupImage.classList.add("popup_opened");
+  openPopup(popupImage);
   fullImage.src = this.src;
+  fullImage.alt = this.alt;
   popupDescription.innerHTML = this.alt;
 };
 
