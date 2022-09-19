@@ -17,7 +17,7 @@ const about = document.querySelector(".profile__subtitle");
 const inputName = document.querySelector(".popup__text_type_name");
 const inputJob = document.querySelector(".popup__text_type_about");
 const formElementEdit = document.querySelector(".popup__container_edit");
-const closeBtn = document.querySelectorAll(".popup__close");
+const closeBtns = document.querySelectorAll(".popup__close");
 const initialCards = [
   {
     name: 'Архыз',
@@ -61,7 +61,7 @@ function closePopupByClick(e) {
     closePopup(popupToclose);
   });
 };
-closeBtn.forEach(closePopupByClick);
+closeBtns.forEach(closePopupByClick);
 
 function openPopupEdit(e) {
   e.preventDefault();
