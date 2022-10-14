@@ -33,12 +33,16 @@
     <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
   </footer>
   <div class="popup popup-edit">
-    <form class="popup__container popup__container_edit">
+    <form class="popup__container popup__container_edit" novalidate>
       <h2 class="popup__title">Редактировать профиль</h2>
       <div class="popup__input">
-        <input type="text" name="profileName" class="popup__text popup__text_type_name" />
-        <input type="text" name="profileAbout" class="popup__text popup__text_type_about" />
-        <button type="submit" class="popup__submit-btn">Сохранить</button>
+        <input id="profile-input" type="text" name="profileName" class="popup__text popup__text_type_name" required
+          minlength="2" maxlength="40" />
+        <span class="popup__input-error profile-input-error"></span>
+        <input id="about-input" type="text" name="profileAbout" class="popup__text popup__text_type_about" required
+          minlength="2" maxlength="200" />
+        <span class="popup__input-error about-input-error"></span>
+        <button type="submit" class="popup__submit-btn" disabled>Сохранить</button>
       </div>
       <button class="popup__close" aria-label="Закрыть">
         <img class="popup__cross" src="./images/close.svg" alt="Закрыть" />
@@ -46,13 +50,16 @@
     </form>
   </div>
   <div class="popup popup-add">
-    <form class="popup__container popup__container_add">
+    <form class="popup__container popup__container_add" novalidate>
       <h2 class="popup__title">Новое место</h2>
       <div class="popup__input">
-        <input type="text" name="imageName" placeholder="Название" class="popup__text popup__text_type_title" />
-        <input type="text" name="imageLink" placeholder="Ссылка на картинку"
-          class="popup__text popup__text_type_link" />
-        <button type="submit" class="popup__submit-btn">Сохранить</button>
+        <input id="image-input" type="text" name="imageName" placeholder="Название"
+          class="popup__text popup__text_type_title" required minlength="2" maxlength="30" />
+        <span class="popup__input-error image-input-error"></span>
+        <input id="link-input" type="url" name="imageLink" placeholder="Ссылка на картинку"
+          class="popup__text popup__text_type_link" required />
+        <span class="popup__input-error link-input-error"></span>
+        <button type="submit" class="popup__submit-btn" disabled>Сохранить</button>
       </div>
       <button class="popup__close" aria-label="Закрыть">
         <img class="popup__cross" src="./images/close.svg" alt="Закрыть" />
@@ -80,7 +87,9 @@
       </button>
     </div>
   </div>
+  <script src="./js/validate.js"></script>
   <script src="./js/script.js"></script>
+
 </body>
 
 </html>
