@@ -12,6 +12,11 @@
   line-height: 22px;
   text-align: center;
   opacity: 0.2;
+  cursor: auto;
+}
+
+.popup__submit-btn_inactive:hover {
+  opacity: 0.2;
 }
 
 @media screen and (max-width: 780px) {

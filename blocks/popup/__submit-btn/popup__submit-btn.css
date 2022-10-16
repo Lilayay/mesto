@@ -11,6 +11,7 @@
   font-size: 18px;
   line-height: 22px;
   text-align: center;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 780px) {

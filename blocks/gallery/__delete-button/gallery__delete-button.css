@@ -10,8 +10,9 @@
   width: 18px;
   height: 19px;
   z-index: 1;
+  cursor: pointer;
 }
 
-.gallery__like-button:hover {
+.gallery__delete-button:hover {
   opacity: 0.5;
 }

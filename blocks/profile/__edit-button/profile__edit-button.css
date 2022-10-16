@@ -12,6 +12,7 @@
   background-position: center center;
   background-size: 10px;
   border: 1px solid #ffffff;
+  cursor: pointer;
 }
 
 .profile__edit-button:hover {
