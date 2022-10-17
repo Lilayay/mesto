@@ -1,6 +1,5 @@
 const editBtn = document.querySelector(".profile__edit-button");
 const addBtn = document.querySelector(".profile__add-button");
-const popup = document.querySelector(".popup");
 const popupAdd = document.querySelector(".popup-add");
 const popupEdit = document.querySelector(".popup-edit");
 const gallery = document.querySelector(".gallery__elements");
@@ -19,33 +18,28 @@ const inputJob = document.querySelector(".popup__text_type_about");
 const formElementEdit = document.querySelector(".popup__container_edit");
 const closeBtns = document.querySelectorAll(".popup__close");
 
-function clearErrors() {
-  const errorList = document.querySelectorAll(".popup__input-error");
-  errorList.forEach(function (element) {
-    element.textContent = "";
-  })
-}
+
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
-  window.addEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-      popup.classList.remove("popup_opened");
-    }
-  })
-  clearErrors()
+  window.addEventListener('keydown', closeByEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  window.removeEventListener('keydown', function (event) {
-    if (event.key === 'Escape') {
-      popup.classList.remove("popup_opened");
-    }
-  })
+  popup.removeEventListener('keydown', closeByEsc);
+
 }
 
-function SetCloseBtn(e) {
+function closeByEsc(event) {
+  if (event.key === 'Escape') {
+    const popupToClose = document.querySelector('.popup_opened');
+    closePopup(popupToClose);
+  }
+}
+
+
+function setCloseBtn(e) {
   e.addEventListener("click", function (e) {
     e.preventDefault();
     const currentPopup = e.target;
@@ -53,7 +47,7 @@ function SetCloseBtn(e) {
     closePopup(popupToclose);
   });
 }
-closeBtns.forEach(SetCloseBtn);
+closeBtns.forEach(setCloseBtn);
 
 window.onclick = function (e) {
   const currentPopup = e.target;
@@ -68,6 +62,8 @@ function openPopupEdit(e) {
   inputName.value = title.textContent;
   inputJob.value = about.textContent;
   openPopup(popupEdit);
+  hideInputError(formElementEdit, inputName);
+  hideInputError(formElementEdit, inputJob);
 }
 
 editBtn.addEventListener("click", openPopupEdit);
@@ -77,6 +73,7 @@ function changeForm(e) {
   title.textContent = inputName.value;
   about.textContent = inputJob.value;
   closePopup(popupEdit);
+
 }
 formElementEdit.addEventListener("submit", changeForm);
 
@@ -84,6 +81,8 @@ function openPopupAdd(e) {
   e.preventDefault();
   openPopup(popupAdd);
   formElementAdd.reset();
+  hideInputError(formElementAdd, inputImageTitle);
+  hideInputError(formElementAdd, inputImageLink);
 }
 addBtn.addEventListener("click", openPopupAdd);
 
@@ -100,8 +99,7 @@ function addFormCard(e) {
   closePopup(popupAdd);
   formElementAdd.reset();
   const buttonElement = popupAdd.querySelector(".popup__submit-btn");
-  buttonElement.classList.add("popup__submit-btn_inactive");
-  buttonElement.disabled = true;
+  disableBtn(buttonElement);
 }
 
 function renderGallery() {
