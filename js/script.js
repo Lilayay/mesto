@@ -27,8 +27,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
-  popup.removeEventListener('keydown', closeByEsc);
-
+  window.removeEventListener('keydown', closeByEsc(popup));
 }
 
 function closeByEsc(event) {
@@ -37,7 +36,6 @@ function closeByEsc(event) {
     closePopup(popupToClose);
   }
 }
-
 
 function setCloseBtn(e) {
   e.addEventListener("click", function (e) {

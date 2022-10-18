@@ -2,20 +2,20 @@
 <html lang="ru">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" href="./pages/index.css" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./pages/index.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
 </head>
 
 <body class="page">
   <header class="header">
-    <a class="header__link" href="#"><img class="header__logo" src="./images/header.svg" alt="Логотип" /></a>
+    <a class="header__link" href="#"><img class="header__logo" src="./images/header.svg" alt="Логотип"></a>
   </header>
   <main class="content">
     <section class="profile">
       <div class="profile__info">
-        <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар" />
+        <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
         <div class="profile__text">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" aria-label="Редактировать профиль"></button>
@@ -36,16 +36,20 @@
     <form class="popup__container popup__container_edit" novalidate>
       <h2 class="popup__title">Редактировать профиль</h2>
       <div class="popup__input">
-        <input id="profile-input" type="text" name="profileName" class="popup__text popup__text_type_name" required
-          minlength="2" maxlength="40" />
-        <span class="popup__input-error profile-input-error"></span>
+        <label class="popup__label">
+          <input id="profile-input" type="text" name="profileName" class="popup__text popup__text_type_name" required
+            minlength="2" maxlength="40">
+          <span class="popup__input-error profile-input-error"></span>
+        </label>
+        <label class="popup__label">
         <input id="about-input" type="text" name="profileAbout" class="popup__text popup__text_type_about" required
-          minlength="2" maxlength="200" />
+          minlength="2" maxlength="200">
         <span class="popup__input-error about-input-error"></span>
+        </label>
         <button type="submit" class="popup__submit-btn" disabled>Сохранить</button>
       </div>
       <button class="popup__close" aria-label="Закрыть">
-        <img class="popup__cross" src="./images/close.svg" alt="Закрыть" />
+        <img class="popup__cross" src="./images/close.svg" alt="Закрыть">
       </button>
     </form>
   </div>
@@ -53,16 +57,20 @@
     <form class="popup__container popup__container_add" novalidate>
       <h2 class="popup__title">Новое место</h2>
       <div class="popup__input">
-        <input id="image-input" type="text" name="imageName" placeholder="Название"
-          class="popup__text popup__text_type_title" required minlength="2" maxlength="30" />
-        <span class="popup__input-error image-input-error"></span>
+        <label class="popup__label">
+          <input id="image-input" type="text" name="imageName" placeholder="Название"
+            class="popup__text popup__text_type_title" required minlength="2" maxlength="30">
+          <span class="popup__input-error image-input-error"></span>
+        </label>
+        <label class="popup__label">
         <input id="link-input" type="url" name="imageLink" placeholder="Ссылка на картинку"
-          class="popup__text popup__text_type_link" required />
+          class="popup__text popup__text_type_link" required>
         <span class="popup__input-error link-input-error"></span>
+        </label>
         <button type="submit" class="popup__submit-btn" disabled>Сохранить</button>
       </div>
       <button class="popup__close" aria-label="Закрыть">
-        <img class="popup__cross" src="./images/close.svg" alt="Закрыть" />
+        <img class="popup__cross" src="./images/close.svg" alt="Закрыть">
       </button>
     </form>
   </div>
@@ -70,7 +78,7 @@
     <li class="gallery__element">
       <button class="gallery__delete-button" aria-label="Удалить"></button>
       <div class="gallery__image-container">
-        <img class="gallery__image" src=" " alt="Фото" />
+        <img class="gallery__image" src=" " alt="Фото">
       </div>
       <div class="gallery__description">
         <h2 class="gallery__title"></h2>
@@ -80,10 +88,10 @@
   </template>
   <div class="popup popup-image">
     <div class="popup__image-container">
-      <img class="popup__image-full" src=" " alt="Фото" />
+      <img class="popup__image-full" src=" " alt="Фото">
       <p class="popup__description"></p>
       <button class="popup__close" aria-label="Закрыть">
-        <img class="popup__cross" src="./images/close.svg" alt="Закрыть" />
+        <img class="popup__cross" src="./images/close.svg" alt="Закрыть">
       </button>
     </div>
   </div>
