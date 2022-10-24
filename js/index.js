@@ -1,3 +1,5 @@
+import {Card} from './card';
+
 const editBtn = document.querySelector(".profile__edit-button");
 const addBtn = document.querySelector(".profile__add-button");
 const popupAdd = document.querySelector(".popup-add");

@@ -8,6 +8,7 @@ const obj = {
   errorElement: 'popup__input-error'
 }
 
+
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(obj.inputErrorClass);
