@@ -1,4 +1,5 @@
 import { openPopup } from "./index.js";
+import { popupImage } from "./index.js";
 
 class Card {
   constructor(name, link, templateSelector) {
@@ -25,7 +26,7 @@ class Card {
     });
 
     likeBtn.addEventListener('click', () => {
-      this._cardLike(this, this._likeBtn,);
+      this._cardLike();
     });
 
     deleteButton.addEventListener('click', () => {
@@ -38,12 +39,10 @@ class Card {
   }
 
   _cardDelete() {
-    const chosenCard = this._element.closest(".gallery__element");
-    chosenCard.remove();
+    this._element.remove();
   }
 
   _openImage() {
-    const popupImage = document.querySelector(".popup-image");
     document.querySelector(".popup__image-full").src = this._link;
     document.querySelector(".popup__image-full").alt = this._name;
     document.querySelector(".popup__description").innerHTML = this._name;
@@ -51,14 +50,11 @@ class Card {
   }
 
   createCard() {
-
     this._element = this._getTemplate();
     this._setEventListeners()
-
     this._element.querySelector('.gallery__image').src = this._link;
     this._element.querySelector('.gallery__title').alt = this._name;
     this._element.querySelector('.gallery__title').textContent = this._name;
-
     return this._element;
   }
 }

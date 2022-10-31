@@ -1,18 +1,10 @@
-const obj = {
-  formElement: '.popup__container',
-  fieldSet: '.popup__input',
-  inputElement: '.popup__text',
-  buttonElement: '.popup__submit-btn',
-  inactiveButton: 'popup__submit-btn_inactive',
-  inputErrorClass: 'popup__text-error',
-  errorElement: 'popup__input-error'
-}
+import { obj } from "./object.js";
 
 class FormValidator {
   constructor(obj, formElement) {
     this._obj = obj;
     this._formElement = formElement;
-    this._inputList = Array.from(formElement.querySelectorAll(obj.inputElement));
+    this._inputList = Array.from(formElement.querySelectorAll(this._obj.inputElement));
     this._submitBtn = this._formElement.querySelector(this._obj.buttonElement);
   }
 
@@ -32,7 +24,7 @@ class FormValidator {
 
   _checkInputValidity() {
     this._inputList.forEach((inputElement) => {
-      if (!inputElement.validity.valid) {
+      if (!inputElement.checkValidity()) {
         this._showInputError(inputElement);
       } else {
         this._hideInputError(inputElement);
@@ -62,12 +54,12 @@ class FormValidator {
     this._inputList.forEach((inputElement) => {
       this._hideInputError(inputElement);
     })
-    this._submitBtn.classList.add(obj.inactiveButton);
+    this._submitBtn.classList.add(this._obj.inactiveButton);
     this._submitBtn.disabled = true;
   }
 
   enableValidation() {
-    this._addFormListeners();
+    this._addFormListeners(this._formElement);
   }
 }
 
