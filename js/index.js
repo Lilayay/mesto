@@ -27,6 +27,7 @@ function closePopup(popup) {
   popup.classList.remove("popup_opened");
 }
 
+
 function closeByEsc(e) {
   if (e.key === 'Escape') {
     const popupToClose = document.querySelector('.popup_opened');
