@@ -6,6 +6,7 @@ const profileEditBtn = document.querySelector(".profile__edit-button");
 const cardAddBth = document.querySelector(".profile__add-button");
 const popupAdd = document.querySelector(".popup-add");
 const popupEdit = document.querySelector(".popup-edit");
+const popupImage = document.querySelector(".popup-image");
 const gallery = document.querySelector('.gallery__elements');
 const formElementAdd = document.querySelector(".popup__container_add");
 const inputImageTitle = document.querySelector(".popup__text_type_title");
@@ -16,24 +17,31 @@ const inputName = document.querySelector(".popup__text_type_name");
 const inputJob = document.querySelector(".popup__text_type_about");
 const formElementEdit = document.querySelector(".popup__container_edit");
 const closeBtns = document.querySelectorAll(".popup__close");
-const popupImage = document.querySelector(".popup-image");
 
 function openPopup(popup) {
   popup.classList.add("popup_opened");
   document.addEventListener('keydown', closeByEsc);
+  popup.addEventListener('click', closeByOverlay);
 }
 
 function closePopup(popup) {
   popup.classList.remove("popup_opened");
+  document.removeEventListener('keydown', closeByEsc);
 }
 
-
-function closeByEsc(e) {
-  if (e.key === 'Escape') {
-    const popupToClose = document.querySelector('.popup_opened');
-    closePopup(popupToClose);
+function closeByOverlay(evt) {
+  const popup = evt.target;
+  const popupContent = popup.closest(".popup__container");
+  if (evt.target !== popupContent) {
+    closePopup(popup);
   }
-  document.removeEventListener('keydown', closeByEsc);
+}
+
+function closeByEsc(evt) {
+  if (evt.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
 }
 
 function setCloseBtn(closeBtn) {
@@ -46,14 +54,6 @@ function setCloseBtn(closeBtn) {
 }
 
 closeBtns.forEach(setCloseBtn);
-
-window.onclick = function (e) {
-  const currentPopup = e.target;
-  const popupContent = currentPopup.closest(".popup__container");
-  if (e.target !== popupContent) {
-    closePopup(currentPopup);
-  }
-};
 
 const formValidatorEdit = new FormValidator(obj, formElementEdit);
 formValidatorEdit.enableValidation();
@@ -108,7 +108,6 @@ function renderGallery() {
 }
 
 formElementAdd.addEventListener("submit", addFormCard);
-
 
 renderGallery();
 

@@ -22,14 +22,12 @@ class FormValidator {
     errorElement.textContent = ' ';
   }
 
-  _checkInputValidity() {
-    this._inputList.forEach((inputElement) => {
-      if (!inputElement.checkValidity()) {
-        this._showInputError(inputElement);
-      } else {
-        this._hideInputError(inputElement);
-      }
-    })
+  _checkInputValidity(inputElement) {
+    if (!inputElement.validity.valid) {
+      this._showInputError(inputElement);
+    } else {
+      this._hideInputError(inputElement);
+    }
   }
 
   _toggleButtonState() {
@@ -37,16 +35,14 @@ class FormValidator {
     this._submitBtn.classList.toggle(this._obj.inactiveButton, !this._formElement.checkValidity());
   };
 
-  _preventDefault(evt) {
-    evt.preventDefault();
-  }
-
   _addFormListeners() {
-    this._formElement.addEventListener('submit', this._preventDefault);
-    this._inputList.forEach((inputElement) => inputElement.addEventListener('input', () => {
-      this._checkInputValidity();
-      this._toggleButtonState();
-    }));
+    this._toggleButtonState();
+    this._inputList.forEach((inputElement) => {
+      inputElement.addEventListener('input', () => {
+        this._checkInputValidity(inputElement);
+        this._toggleButtonState();
+      })
+    })
   }
 
   resetValidation() {
