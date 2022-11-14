@@ -3,19 +3,20 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="./pages/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mesto</title>
+  <script defer src="main.js"></script>
 </head>
 
 <body class="page">
   <header class="header">
-    <a class="header__link" href="#"><img class="header__logo" src="./images/header.svg" alt="Логотип"></a>
+    <a class="header__link" href="#"><img class="header__logo" src="<%=require('./images/header.svg')%>"
+        alt="Логотип"></a>
   </header>
   <main class="content">
     <section class="profile">
       <div class="profile__info">
-        <img class="profile__avatar" src="./images/avatar.jpg" alt="Аватар">
+        <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Аватар">
         <div class="profile__text">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" aria-label="Редактировать профиль"></button>
@@ -49,7 +50,7 @@
         <button type="submit" class="popup__submit-btn" disabled>Сохранить</button>
       </div>
       <button class="popup__close" aria-label="Закрыть">
-        <img class="popup__cross" src="./images/close.svg" alt="Закрыть">
+        <img class="popup__cross" src="<%=require('./images/close.svg')%>" alt="Закрыть">
       </button>
     </form>
   </div>
@@ -70,7 +71,7 @@
         <button type="submit" class="popup__submit-btn" disabled>Сохранить</button>
       </div>
       <button class="popup__close" aria-label="Закрыть">
-        <img class="popup__cross" src="./images/close.svg" alt="Закрыть">
+        <img class="popup__cross" src="<%=require('./images/close.svg')%>" alt="Закрыть">
       </button>
     </form>
   </div>
@@ -88,18 +89,13 @@
   </template>
   <div class="popup popup-image">
     <div class="popup__image-container">
-      <img class="popup__image-full" src=" " alt="Фото">
+      <img class="popup__image-full" src="#" alt="Фото">
       <p class="popup__description"></p>
       <button class="popup__close" aria-label="Закрыть">
-        <img class="popup__cross" src="./images/close.svg" alt="Закрыть">
+        <img class="popup__cross" src="<%=require('./images/close.svg')%>" alt="Закрыть">
       </button>
     </div>
   </div>
-  <script src="./js/initialCards.js" defer></script>
-  <script src="./js/object.js" type="module" defer></script>
-  <script src="./js/index.js" type="module" defer></script>
-  <script src="./js/Card.js" type="module" defer></script>
-  <script src="./js/FormValidator.js" type="module" defer></script>
 </body>
 
 </html>

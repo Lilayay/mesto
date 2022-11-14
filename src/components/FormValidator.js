@@ -1,6 +1,6 @@
 import { obj } from "./object.js";
 
-class FormValidator {
+export default class FormValidator {
   constructor(obj, formElement) {
     this._obj = obj;
     this._formElement = formElement;
@@ -35,8 +35,13 @@ class FormValidator {
     this._submitBtn.classList.toggle(this._obj.inactiveButton, !this._formElement.checkValidity());
   };
 
+  _preventDefaultSubmit(evt) {
+    evt.preventDefault();
+  }
+
   _addFormListeners() {
     this._toggleButtonState();
+    this._formElement.addEventListener('submit', this._preventDefaultSubmit);
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
@@ -59,5 +64,4 @@ class FormValidator {
   }
 }
 
-export { FormValidator };
 export { obj };
