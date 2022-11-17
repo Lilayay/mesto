@@ -22,13 +22,11 @@ const inputJob = document.querySelector(".popup__text_type_about");
 //Добавить карточку
 const popupAdd = new PopupWithForm({
   popupSelector: '.popup-add',
-  handleSubmit: handleSubmitAdd
+  handleSubmit: () => {
+    cardsList.addItem(makeCard(inputCardTitle.value, inputCardLink.value));
+    popupAdd.closePopup();
+  }
 });
-
-function handleSubmitAdd(name, link) {
-  const card = makeCard({ name: name, link: link });
-  cardsList.addItem(card);
-}
 
 popupAdd.setEventListeners();
 
@@ -38,21 +36,20 @@ cardAddBth.addEventListener('click', () => {
 })
 
 //Редактировать профиль
-const userInfo = new UserInfo({
-  titleSelector: '.profile__title',
-  aboutSelector: '.profile__subtitle'
-});
-
 const popupEdit = new PopupWithForm({
   popupSelector: '.popup-edit',
-  handleSubmit: handleSubmitEdit
+  handleSubmit: () => {
+    userInfo.setUserInfo(inputName.value, inputJob.value);
+    popupEdit.closePopup()
+  }
 });
 
-function handleSubmitEdit(title, about) {
-  userInfo.setUserInfo({ title: title, about: about });
-};
-
 popupEdit.setEventListeners();
+
+const userInfo = new UserInfo({
+  titleSelector: ".profile__title",
+  aboutSelector: ".profile__subtitle"
+});
 
 profileEditBtn.addEventListener('click', () => {
   inputName.value = userInfo.getUserInfo().title;
@@ -74,20 +71,22 @@ const formValidatorAdd = new FormValidator(obj, formElementAdd);
 formValidatorAdd.enableValidation();
 
 //Создать карточку
-function makeCard({ name: name, link: link }) {
-  const card = new Card(name, link, '.template', handleCardClick);
-  const cardElement = card.createCard();
-  cardsList.addItem(cardElement);
+const makeCard = (cardName, link) => {
+  const card = new Card(cardName, link, '.template', handleCardClick);
+  return card.createCard();
 }
 
-function handleCardClick(name, link) {
-  popupWithImage.openImagePopup(name, link);
+const handleCardClick = (cardName, link) => {
+  popupWithImage.openPopup(cardName, link);
 };
 
 //Отрисовать галерею
 const cardsList = new Section({
   items: initialCards,
-  renderer: makeCard
+  renderer: (cardName, link) => {
+    cardsList.addItem(makeCard(cardName, link));
+  }
 }, '.gallery__elements')
+
 
 cardsList.renderItems()

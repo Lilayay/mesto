@@ -21,17 +21,18 @@ export default class Popup {
   }
 
   _closeByOverlay(evt) {
-    this._popup = evt.target;
-    const popupContent = this._popup.closest(".popup__container");
-    if (evt.target !== popupContent) {
+    if (evt.target === this._popup) {
       this.closePopup();
     }
   }
-
   setEventListeners() {
-    this._popup.addEventListener('mousedown', (evt) => { this._closeByOverlay(evt) });
-
     const closeBtn = this._popup.querySelector('.popup__close');
-    closeBtn.addEventListener('click', () => { this.closePopup() });
+    closeBtn.addEventListener('click', () => {
+      this.closePopup();
+    });
+
+    this._popup.addEventListener('mousedown', (evt) => {
+      this._closeByOverlay(evt);
+    });
   }
 }

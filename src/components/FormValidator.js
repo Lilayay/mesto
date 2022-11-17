@@ -1,5 +1,3 @@
-import { obj } from "./object.js";
-
 export default class FormValidator {
   constructor(obj, formElement) {
     this._obj = obj;
@@ -63,5 +61,3 @@ export default class FormValidator {
     this._addFormListeners(this._formElement);
   }
 }
-
-export { obj };
