@@ -15,7 +15,8 @@
   <main class="content">
     <section class="profile">
       <div class="profile__info">
-        <img class="profile__avatar" src="d665145c1609b5a051e1.jpg" alt="Аватар">
+        <button class="profile__avatar-button" aria-label="Изменить аватар"><img class="profile__avatar"
+            src="d665145c1609b5a051e1.jpg" alt="Аватар"></button>
         <div class="profile__text">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
           <button class="profile__edit-button" aria-label="Редактировать профиль"></button>
@@ -69,6 +70,31 @@
         </label>
         <button type="submit" class="popup__submit-btn" disabled>Сохранить</button>
       </div>
+      <button type="button" class="popup__close" aria-label="Закрыть">
+        <img class="popup__cross" src="973e77374abfb705de40.svg" alt="Закрыть">
+      </button>
+    </form>
+  </div>
+  <div class="popup popup-avatar">
+    <form class="popup__container popup__container_avatar" novalidate>
+      <h2 class="popup__title">Обновить аватар</h2>
+      <div class="popup__input">
+        <label class="popup__label">
+          <input id="avatar-input" type="url" name="avatar" placeholder="Ссылка на аватар"
+            class="popup__text popup__text_type_avatar" required>
+          <span class="popup__input-error avatar-input-error"></span>
+        </label>
+        <button type="submit" class="popup__submit-btn" disabled>Сохранить</button>
+      </div>
+      <button type="button" class="popup__close" aria-label="Закрыть">
+        <img class="popup__cross" src="973e77374abfb705de40.svg" alt="Закрыть">
+      </button>
+    </form>
+  </div>
+  <div class="popup popup-delete">
+    <form class="popup__container popup__container_delete" novalidate>
+      <h2 class="popup__title">Вы уверены?</h2>
+      <button type="submit" class="popup__submit-btn" disabled>Да</button>
       <button type="button" class="popup__close" aria-label="Закрыть">
         <img class="popup__cross" src="973e77374abfb705de40.svg" alt="Закрыть">
       </button>
