@@ -37,7 +37,7 @@
 /*!*********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/__info/profile__info.css ***!
   \*********************************************************************************************************************************************************************/
-.profile__info{display:flex;flex-direction:row;margin:0;position:relative}@media screen and (max-width:780px){.profile__info{align-items:center;flex-direction:column}}
+.profile__info{display:flex;flex-direction:row;margin:0;max-height:120px;padding:0;position:relative}@media screen and (max-width:780px){.profile__info{align-items:center;flex-direction:column}}
 /*!*********************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/postcss-loader/dist/cjs.js!./src/blocks/profile/__text/profile__text.css ***!
   \*********************************************************************************************************************************************************************/
