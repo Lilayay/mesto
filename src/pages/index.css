@@ -44,3 +44,6 @@
 @import url(../blocks/popup/__description/popup__description.css);
 @import url(../blocks/popup-image/popup-image.css);
 @import url(../blocks/popup/__label/popup__label.css);
+@import url(../blocks/profile/__avatar-button/profile__avatar-button.css);
+@import url(../blocks/gallery/__like-counter/gallery__like-counter.css);
+@import url(../blocks/gallery/__like/gallery__like.css);

@@ -9,9 +9,9 @@ export default class Section {
     this._container.prepend(element);
   }
 
-  renderItems() {
-    this._renderedItems.forEach((item) => {
-      this._renderer(item.cardName, item.link);
+  renderItems(items) {
+    items.reverse().forEach((item) => {
+      this._renderer(item);
     });
   }
 }
