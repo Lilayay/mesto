@@ -81,8 +81,9 @@ const userInfo = new UserInfo({
 });
 
 profileEditBtn.addEventListener('click', () => {
-  inputName.value = userInfo.getUserInfo().name;
-  inputAbout.value = userInfo.getUserInfo().about;
+  const info = userInfo.getUserInfo();
+  inputName.value = info.name;
+  inputAbout.value = info.about;
   popupEdit.openPopup();
   formValidatorEdit.resetValidation();
 });
@@ -171,18 +172,18 @@ const makeCard = (cardData) => {
       });
     },
     handleCardLike: (cardId) => {
-      api.cardLike(cardId)
+      api.likeCard(cardId)
         .then((data) => {
-          card.cardLike(data);
+          card.likeCard(data);
         })
         .catch((err) => {
           console.log('Ошибка при установке лайка: ', err);
         });
     },
     handleCardLikeDelete: (cardId) => {
-      api.cardLikeDelete(cardId)
+      api.likeCardDelete(cardId)
         .then((data) => {
-          card.cardLike(data);
+          card.likeCard(data);
         })
         .catch((err) => {
           console.log('Ошибка при удалении лайка: ', err);

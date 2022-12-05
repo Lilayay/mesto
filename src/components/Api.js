@@ -69,7 +69,7 @@ export default class Api {
       .then(this._statusCheck)
   }
 
-  cardLike(cardId) {
+  likeCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers
@@ -77,7 +77,7 @@ export default class Api {
       .then(this._statusCheck)
   }
 
-  cardLikeDelete(cardId) {
+  likeCardDelete(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers

@@ -48,7 +48,7 @@ export default class Card {
     }
   }
 
-  cardLike(data) {
+  likeCard(data) {
     this._likes = data.likes;
     this._likeCounter.textContent = this._likes.length;
     this._likeBtn.classList.toggle('gallery__like-button_active');
